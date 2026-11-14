@@ -12,6 +12,12 @@ from .core import collect, pack, preset_budget, render
 from .tokens import estimate, method
 
 
+def _write(path, text):
+    """Write UTF-8 with LF endings (Path.write_text has no newline= before Python 3.10)."""
+    with open(path, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(text)
+
+
 def _copy(text: str) -> bool:
     for cmd in (["clip"], ["pbcopy"], ["wl-copy"], ["xclip", "-selection", "clipboard"]):
         if shutil.which(cmd[0]):
@@ -92,7 +98,7 @@ def main(argv=None) -> int:
         old.unlink()
     width = max(3, len(str(len(parts))))
     for i, part in enumerate(parts, 1):
-        (out / f"part-{i:0{width}d}.md").write_text(part, encoding="utf-8", newline="\n")
+        _write((out / f"part-{i:0{width}d}.md"), part)
     print(f"✓ wrote {len(parts)} part(s) to {out.as_posix()}/ — paste them in order.", file=sys.stderr)
     return 0
 
