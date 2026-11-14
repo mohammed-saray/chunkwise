@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chunkwise"
+version = "0.1.0"
+description = "Split big files and codebases into token-budgeted chunks with continuation prompts for ChatGPT, Claude and Gemini web chats."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Mohammed Al-Saray"}]
+keywords = ["chunking", "tokens", "context-window", "chatgpt", "claude", "gemini", "llm", "split", "prompt", "cli"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Environment :: Console",
+]
+
+[project.urls]
+Homepage = "https://github.com/mohammed2345353/chunkwise"
+Issues = "https://github.com/mohammed2345353/chunkwise/issues"
+
+[project.scripts]
+chunkwise = "chunkwise.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
