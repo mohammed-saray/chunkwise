@@ -19,8 +19,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mohammed2345353/chunkwise"
-Issues = "https://github.com/mohammed2345353/chunkwise/issues"
+Homepage = "https://github.com/mohammed-saray/chunkwise"
+Issues = "https://github.com/mohammed-saray/chunkwise/issues"
 
 [project.scripts]
 chunkwise = "chunkwise.cli:main"
